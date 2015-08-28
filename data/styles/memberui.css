@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+}
+.form{
+    background:#ffffff;
+    padding: 30px;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.5;
+    max-width:900px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+.form-group select{
+    font-size: 13px;
+    color:#444;
+    width:150px;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+    height: 28px;
+    line-height: 1.5;
+    padding: 2px 6px !important;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+.form-group label {
+    display: inline-block;
+    margin-bottom: 5px;
+    color:#444;
+    min-width:80px;
+    font-size: 13px;
+
+}
+.form-group  span{
+    font-size:13px;
+}
+.form-control {
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+    font-size: 14px;
+    height: 28px;
+    line-height: 1.5;
+    padding: 2px 6px !important;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width:100%;
+    display: inline-block !important;
+}
+.form-control:focus{
+    border-color:#66afe9;
+    outline:0;
+    -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(102,175,233,0.6);
+    box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(102,175,233,0.6)
+}
+
+.form-control-select{
+    font-size: 13px;
+    color:#444;
+}
+.form-control-height-textarea{
+    height:60px;
+}
+.form-control-width-title{
+    width:600px;
+}
+.form-control-width-tag{
+    width:150px;
+}
+.form-tip{
+    color:#777;
+    font-size:13px;
+}
+
+.btn-primary {
+    background-color: #529f46;
+    background-image: linear-gradient(to bottom, #529f46 0%, #529446 100%);
+    background-repeat: repeat-x;
+    border-color: #008b57;
+    box-shadow: none;
+    cursor:pointer;
+}
+.btn {
+    outline: medium none;
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+.btn-lg, .btn-group-lg > .btn {
+    border-radius: 3px;
+    font-size: 16px;
+    line-height: 1.33;
+    padding: 8px 16px;
+}
+.login-link  {
+    color: #ddd;
+}
+.login-link a {
+    color: #999;
+    font-size:14px;
+    margin: 0 10px;
+}

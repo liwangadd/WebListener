@@ -1,0 +1,131 @@
+/* CSS Document */
+* {
+    box-sizing: border-box;
+}
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,address,cite,code,del,dfn,em,img,ins,q,small,strong,sub,sup,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{border:0;margin:0;padding:0;}article,aside,figure,figure img,figcaption,hgroup,footer,header,nav,section,video,object{display:block;}a img{border:0}figure{position:relative}figure img{width:100%}
+img {
+    height: auto;
+}
+a, a:hover, a:active, a:focus {
+    outline: 0 none;
+}
+a {
+    text-decoration: none;
+}
+ul ,li{
+    text-decoration:none;
+    list-style:none;
+
+}
+body {
+    background: #f3f3f3;
+    color: #000000;
+    font-size: 14px;
+    margin: 0;
+    font-family:microsoft yahei;
+}
+.clearfix:after{
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: ".";
+    clear: both;
+    height: 0;
+}
+.fr{
+    float:right;
+}
+.fl{
+    float:left;
+
+}
+.header{
+    margin: 80px 0 30px;
+    color:#999;
+}
+
+.container{
+    width:56%;
+    margin:auto;
+    font-size:18px;
+    margin-bottom:10px;  line-height:50px;
+}
+.login-form{
+    background:#ffffff;
+    margin:auto;
+    width:512px;
+    padding: 30px;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.5;
+}
+.h4{
+    font-size:18px;
+}
+.text-center {
+    text-align: center;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    max-width: 100%;
+}
+.form-group  span{
+    font-size:12px;
+}
+.form-control {
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+    display: block;
+    font-size: 14px;
+    height: 35px;
+    line-height: 1.5;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+}
+.form-control:focus{
+    border-color:#66afe9;
+    outline:0;
+    -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(102,175,233,0.6);
+    box-shadow:inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(102,175,233,0.6)
+}
+.btn-primary {
+    background-color: #529f46;
+    background-image: linear-gradient(to bottom, #529f46 0%, #529b46 100%);
+    background-repeat: repeat-x;
+    border-color: #008b57;
+    box-shadow: none;
+    cursor:pointer;
+}
+.btn {
+    outline: medium none;
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+.btn-block {
+    display: block;
+    width: 100%;
+}
+.btn-lg, .btn-group-lg > .btn {
+    border-radius: 3px;
+    font-size: 18px;
+    line-height: 1.33;
+    padding: 10px 16px;
+}
+.login-link  {
+    color: #ddd;
+}
+.login-link a {
+    color: #999;
+    font-size:14px;
+    margin: 0 10px;
+}
