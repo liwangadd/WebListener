@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>试题管理</title>
     <!--    <link href="--><?php //echo base_url("data/styles/new.css") ?><!--" rel="stylesheet" type="text/css"/>-->

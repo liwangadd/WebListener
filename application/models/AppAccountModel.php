@@ -23,7 +23,7 @@ class AppAccountModel extends CI_Model{
     }
 
     public function loginStu($info){
-        $this->db->select("stu_id, password")->from('student')->where("username",$info['username']);
+        $this->db->select("stu_id, password")->from('student')->where("stu_num",$info['stu_num']);
         $result=$this->db->get()->row();
         if(isset($result)&&$this->encrypt->decode($result->password)==$info['password']){
             return $result->stu_id;

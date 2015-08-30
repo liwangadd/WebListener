@@ -6,12 +6,16 @@
  * Time: 20:49
  */
 
-class AppCountController extends CI_Controller{
+class AppAccountController extends CI_Controller{
 
     public function __construct(){
         parent::__construct();
         $this->load->library('encrypt');
         $this->load->model('AppAccountModel','appModel');
+    }
+
+    public function view(){
+        $this->load->view('student/login');
     }
 
     public function doRegister(){
