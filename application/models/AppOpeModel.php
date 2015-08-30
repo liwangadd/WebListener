@@ -22,17 +22,22 @@ class AppOpeModel extends CI_Model
         return $query->result();
     }
 
-    public function checkQueAns($stuId,$queId,$ans){
-        $this->db->select('ans_right')->from("question")->where('que_id',$queId);
-        $res=$this->db->get()->row;
-        $info=['stu_id'=>$stuId,'que_id'=>$queId,'right'=>$res->ans_right,'answer'=>$ans];
-        if($res==$ans){
-            $info['is_right']=1;
-            $this->db->insert("stu_que",$info);
+    public function checkQueAns($stuId, $queId, $ans)
+    {
+        $this->db->select('ans_right,right_count,wrong_count')->from("question")->where('que_id', $queId);
+        $res = $this->db->get()->row();
+        $info = ['stu_id' => $stuId, 'que_id' => $queId, 'right' => $res->ans_right, 'answer' => $ans];
+        if ($res->ans_right == $ans) {
+            $info['is_right'] = 1;
+            $this->db->insert("stu_que", $info);
+            $value = array('right_count'=>$res->right_count + 1);
+            $this->db->update('question', $value, ['que_id' => $queId]);
             return true;
         }
-        $info['is_right']=0;
-        $this->db->insert("stu_que",$info);
+        $info['is_right'] = 0;
+        $this->db->insert("stu_que", $info);
+        $value = array('wrong_count' >= $res->wrong_count + 1);
+        $this->db->update('question',$value);
         return $res->ans_right;
     }
 

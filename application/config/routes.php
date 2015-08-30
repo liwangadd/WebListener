@@ -65,4 +65,7 @@ $route['teacher/pubQue/(:num)']='WebOpeController/publishQueView';
 $route['teacher/doPubQue']='WebOpeController/doPubQue';
 $route['student/doReg']='AppAccountController/doRegister';
 $route['student/doLogin']='AppAccountController/doLogin';
+$route['student/allTest']='AppOpeController/getAllTest';
+$route['student/queById']='AppOpeController/getQueByTestId';
+$route['student/ans']='AppOpeController/checkQueAns';
 $route['student/view']='AppAccountController/view';
