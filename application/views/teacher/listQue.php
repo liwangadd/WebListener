@@ -189,35 +189,47 @@
         </script>
     </div>
     <div class="main-content">
+        <?php for ($i = 0;
+        $i < count($result);
+        $i++){
+        ?>
         <div class="main-content-inner" style="padding-left: 50px">
             <div style="width:50%; height:auto; float:left; display:inline">
-                <p class="MsoNormal"><span>1. </span><strong><span>在<span>Java</span>中，负责对字节代码解释执行的是 </span></strong>
+                <p class="MsoNormal">
+                    <span>1. </span><strong><span><?php echo $result[$i]->que_topic ?></span></strong>&nbsp;<span><? echo $result[$i]->ans_right ?></span>
                 </p>
 
-                <p class="MsoNormal"><span>A. </span><span>应用服务器</span><span> </span></p>
+                <p class="MsoNormal">
+                    <span>A. </span><span><?php echo $result[$i]->ans_a ?></span>&nbsp;&nbsp;<span><?php echo $result[$i]->stu_a . "   " ?></span>
+                </p>
 
-                <p class="MsoNormal"><span style="color: red;">B. </span><span>虚拟机</span><span
+                <p class="MsoNormal"><span style="color: red;">B. </span><span><?php echo $result[$i]->ans_b ?>&nbsp;&nbsp</span><?php echo $result[$i]->stu_a . "   " ?>
+                    <span> </span></p>
+
+                <p class="MsoNormal"><span>C. </span><span><?php echo $result[$i]->ans_c ?>
+                        &nbsp;&nbsp</span><?php echo $result[$i]->stu_a . "   " ?><span> </span></p>
+
+                <p class="MsoNormal">
+                    <span>D. </span><span><?php echo $result[$i]->ans_d ?></span>&nbsp;&nbsp<span><?php echo $result[$i]->stu_a . "   " ?></span>
+                </p>
+            </div>
+            <?php $i++ ?>
+            <div style="width:50%; height:auto; float:left; display:inline">
+                <p class="MsoNormal">
+                    <span>1. </span><strong><span><?php echo $result[$i]->que_topic ?></span></strong>&nbsp;<span><? echo $result[$i]->ans_right ?></span>
+                </p>
+
+                <p class="MsoNormal"><span>A. </span><span><?php echo $result[$i]->ans_a ?></span><span> </span></p>
+
+                <p class="MsoNormal"><span
+                        style="color: red;">B. </span><span><?php echo $result[$i]->ans_b ?></span><span
                         style="color: red;"> </span></p>
 
-                <p class="MsoNormal"><span>C. </span><span>垃圾回收器</span><span> </span></p>
+                <p class="MsoNormal"><span>C. </span><span><?php echo $result[$i]->ans_c ?></span><span> </span></p>
 
-                <p class="MsoNormal"><span>D. </span><span>编译器</span></p>
+                <p class="MsoNormal"><span>D. </span><span><?php echo $result[$i]->ans_d ?></span></p>
             </div>
-
-            <div style="width:50%; height:auto; float:left; display:inline">
-                <p class="MsoNormal"><span>1. </span><strong><span>在<span>Java</span>中，负责对字节代码解释执行的是 </span></strong>
-                </p>
-
-                <p class="MsoNormal"><span>A. </span><span>应用服务器</span><span> </span></p>
-
-                <p class="MsoNormal"><span style="color: red;">B. </span><span>虚拟机</span><span
-                        style="color: red;"> </span>
-                </p>
-
-                <p class="MsoNormal"><span>C. </span><span>垃圾回收器</span><span> </span></p>
-
-                <p class="MsoNormal"><span>D. </span><span>编译器</span></p>
-            </div>
+            <?php } ?>
             <!-- /.page-content -->
         </div>
         <!-- /.main-content -->

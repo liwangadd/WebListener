@@ -14,7 +14,7 @@ class WebOpeModel extends CI_Model
     }
 
     public function pubTest($title,$teacher){
-        $test=["test_topic"=>$title,"teacher_name"=>$teacher];
+        $test=["test_topic"=>$title,"teacher_name"=>$teacher,'pub_time'=>date("Y-m-d H:i:s")];
         $this->db->insert("test",$test);
     }
 
@@ -40,5 +40,11 @@ class WebOpeModel extends CI_Model
 
     public function insertQue($data){
         $this->db->insert("question", $data);
+    }
+
+    public function listQue($test_id){
+        $where['test_id']=$test_id;
+        $query=$this->db->get_where('question',$where);
+        return $query->result();
     }
 } 

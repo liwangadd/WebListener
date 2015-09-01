@@ -88,4 +88,11 @@ class WebOpeController extends CI_Controller
         }
     }
 
+    public function listQue(){
+        $test_id=$this->uri->segment(3);
+        $result=$this->webModel->listQue($test_id);
+        $data['result']=$result;
+        $this->load->view('teacher/listQue',$data);
+    }
+
 } 

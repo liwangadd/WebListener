@@ -30,15 +30,35 @@ class AppOpeModel extends CI_Model
         if ($res->ans_right == $ans) {
             $info['is_right'] = 1;
             $this->db->insert("stu_que", $info);
-            $value = array('right_count'=>$res->right_count + 1);
+            $value = array('right_count' => $res->right_count + 1);
+            $this->updateStuAns($ans, $value, $res);
             $this->db->update('question', $value, ['que_id' => $queId]);
             return true;
         }
         $info['is_right'] = 0;
         $this->db->insert("stu_que", $info);
         $value = array('wrong_count' >= $res->wrong_count + 1);
-        $this->db->update('question',$value);
+        $this->updateStuAns($ans, $value, $res);
+        $this->db->update('question', $value);
         return $res->ans_right;
+    }
+
+    public function updateStuAns($ans, $values, $res)
+    {
+        switch ($ans) {
+            case 'A':
+                $values['stu_a']=$res->stu_a+1;
+                break;
+            case 'B':
+                $values['stu_b']=$res->stu_b+1;
+                break;
+            case 'C':
+                $values['stu_c']=$res->stu_c+1;
+                break;
+            default:
+                $values['stu_d']=$res->stu_d+1;
+                break;
+        }
     }
 
 } 
