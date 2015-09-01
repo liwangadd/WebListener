@@ -15,7 +15,7 @@ class AppAccountController extends CI_Controller{
     }
 
     public function view(){
-        $this->load->view('student/answer');
+        $this->load->view('teacher/listQue');
     }
 
     public function doRegister(){
