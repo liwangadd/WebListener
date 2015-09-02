@@ -4,15 +4,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>试题管理</title>
-    <!--    <link href="--><?php //echo base_url("data/styles/new.css") ?><!--" rel="stylesheet" type="text/css"/>-->
-    <!--    <link href="-->
-    <?php //echo base_url("data/styles/memberui.css") ?><!--" rel="stylesheet" type="text/css"/>-->
     <link href="<?php echo base_url("data/styles/bootstrap.min.css") ?>" rel="stylesheet"/>
     <link rel="stylesheet" href="<?php echo base_url("data/styles/font-awesome.min.css") ?>"/>
 
     <link rel="stylesheet" href="<?php echo base_url("data/styles/ace.css") ?>"/>
-    <!--    <link rel="stylesheet" href="--><?php //echo base_url("data/styles/ace-rtl.min.css") ?><!--"/>-->
-    <!--    <link rel="stylesheet" href="--><?php //echo base_url("data/styles/ace-skins.min.css") ?><!--"/>-->
 
     <script src="templets/ace/js/ace-extra.min.js"></script>
 
@@ -80,224 +75,94 @@
     </div>
     <!-- /.container -->
 </div>
-<!--<script language="javascript" type="text/javascript" src="/include/myajax.js"></script>-->
-<!--<script language='javascript'>-->
-<!--    function LoadNews() {-->
-<!--        var taget_obj = document.getElementById('news');-->
-<!--        var myajax = new MyAjax(taget_obj, true, false, '', 'x', "");-->
-<!--        myajax.SendGet2("/plus/member_ajax.php");-->
-<!--        DedeXHTTP = null;-->
-<!--    }-->
-<!--    LoadNews();-->
-<!--</script>-->
 <div class="main-container container" id="main-container">
-<script type="text/javascript">
-    try {
-        ace.settings.check('main-container', 'fixed')
-    } catch (e) {
-    }
-</script>
-<div class="sidebar responsive" id="sidebar">
-    <script type="text/javascript">
-        try {
-            ace.settings.check('sidebar', 'fixed')
-        } catch (e) {
-        }
-    </script>
-    <ul class="nav nav-list">
-        <li>
-            <a href="<?php echo site_url('teacher/home') ?>">
-                <i class="menu-icon fa fa-home"></i>
-                <span class="menu-text"> 首页 </span>
-            </a>
-        </li>
-
-        <li class="active open">
-            <a href="#" class="dropdown-toggle">
-                <i class="menu-icon fa fa-windows"></i>
-                <span class="menu-text"> 内容管理 </span>
-
-                <b class="arrow fa fa-angle-down"></b>
-            </a>
-
-            <ul class="submenu">
-                <li class="active">
-                    <a href="/member/content_list.php?channelid=1">
-                        <i class="icon-double-angle-right"></i>
-                        我的试卷
-                    </a>
-                </li>
-
-                <li>
-                    <a href="/ask/?ct=myask">
-                        <i class="icon-double-angle-right"></i>
-                        问答
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-        <li>
-            <a href="#" class="dropdown-toggle">
-                <i class="menu-icon fa fa-star"></i>
-                <span class="menu-text"> 个人收藏 </span>
-
-                <b class="arrow fa fa-angle-down"></b>
-            </a>
-
-            <ul class="submenu">
-                <li>
-                    <a href="/member/mystow.php">
-                        <i class="icon-double-angle-right"></i>
-                        我的收藏
-                    </a>
-                </li>
-
-                <li>
-                    <a href="/member/flink_main.php">
-                        <i class="icon-double-angle-right"></i>
-                        书签
-                    </a>
-                </li>
-
-            </ul>
-        </li>
-        <li>
-            <a href="/member/pm.php">
-                <i class="icon-text-width"></i>
-                <i class="menu-icon fa fa-envelope"></i>
-                <span class="menu-text"> 个人消息 </span>
-            </a>
-        </li>
-
-        <li>
-            <a href="#" class="dropdown-toggle">
-                <i class="menu-icon fa fa-weixin"></i>
-                <span class="menu-text"> 我的好友 </span>
-
-                <b class="arrow fa fa-angle-down"></b>
-            </a>
-
-            <ul class="submenu">
-                <li>
-                    <a href="/member/myfriend.php">
-                        <i class="icon-double-angle-right"></i>
-                        所有好友
-                    </a>
-                </li>
-
-                <li>
-                    <a href="/member/visit-history.php?dopost=viewme">
-                        <i class="icon-double-angle-right"></i>
-                        关注我的
-                    </a>
-                </li>
-                <li>
-                    <a href="/member/visit-history.php?dopost=meview">
-                        <i class="icon-double-angle-right"></i>
-                        我最近访问
-                    </a>
-                </li>
-
-            </ul>
-        </li>
-
-        <li>
-            <a href="/member/edit_space_info.php">
-                <i class="icon-text-width"></i>
-                <i class="menu-icon fa fa-th"></i>
-                <span class="menu-text"> 空间设置 </span>
-            </a>
-        </li>
-
-        <li>
-            <a href="/member/guestbook_admin.php">
-                <i class="menu-icon fa fa-reply"></i>
-                <span class="menu-text"> 留言板 </span>
-            </a>
-        </li>
-    </ul>
-    <!-- /.nav-list -->
-    <div class="sidebar-collapse" id="sidebar-collapse">
-        <i class="icon-double-angle-left" data-icon1="icon-double-angle-left"
-           data-icon2="icon-double-angle-right"></i>
-    </div>
-
-    <script type="text/javascript">
-        try {
-            ace.settings.check('sidebar', 'collapsed')
-        } catch (e) {
-        }
-    </script>
-</div>
-<div class="main-content">
-    <div class="main-content-inner">
-        <div class="breadcrumbs" id="breadcrumbs">
-            <ul class="breadcrumb">
-                <li>
-                    <i class="icon-home home-icon"></i>
-                    <a>内容管理</a>
-                </li>
-                <li class="active">查看试卷</li>
-            </ul>
-            <!-- .breadcrumb -->
-
-            <div class="nav-search" id="nav-search">
-                <a class="btn-green-white" href="<?php echo site_url("teacher/pubTest") ?>">
-
-                    <i class="menu-icon fa fa-pencil-square-o"></i>发表文章
+    <div class="sidebar responsive" id="sidebar">
+        <ul class="nav nav-list">
+            <li>
+                <a href="<?php echo site_url('teacher/home') ?>">
+                    <i class="menu-icon fa fa-home"></i>
+                    <span class="menu-text"> 首页 </span>
                 </a>
+            </li>
+            <li>
+                <a href="<?php echo site_url('teacher/pubTest') ?>" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-star"></i>
+                    <span class="menu-text"> 发布试卷 </span>
+
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="main-content-inner">
+            <div class="breadcrumbs" id="breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a>内容管理</a>
+                    </li>
+                    <li class="active">查看试卷</li>
+                </ul>
+                <!-- .breadcrumb -->
+
+                <div class="nav-search" id="nav-search">
+                    <a class="btn-green-white" href="<?php echo site_url("teacher/pubTest") ?>">
+
+                        <i class="menu-icon fa fa-pencil-square-o"></i>发表试卷
+                    </a>
+                </div>
+                <!-- #nav-search -->
             </div>
-            <!-- #nav-search -->
-        </div>
-        <div class="page-content">
-            <div class="row">
-                <div class="col-xs-12">
-                    <!--内容消息提示 -->
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th class="center" width="45%">标题</th>
-                            <th class="center" width="13%">发布时间</th>
-                            <th class="center" width="11%">操作</th>
-                        </tr>
-                        </thead>
-                        <?php foreach ($result as $item) { ?>
+            <div class="page-content">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!--内容消息提示 -->
+                        <table class="table">
                             <thead>
                             <tr>
-                                <th class="center" width="45%"><?php echo $item->test_topic ?></th>
-                                <th class="center" width="13%"><?php echo $item->pub_time ?></th>
-                                <th class="center" width="11%"><a
-                                        href="<?php echo site_url('teacher/pubQue\/') . $item->test_id ?>">操作</a>
-                                    <a href="<?php echo site_url('teacher/detailTest\/').$item->test_id?>">查看</a>
-                                </th>
+                                <th class="center" width="45%">标题</th>
+                                <th class="center" width="13%">发布时间</th>
+                                <th class="center" width="11%">操作</th>
                             </tr>
                             </thead>
-                        <?php } ?>
-                        <tbody>
-                        </tbody>
-                        <tfoot>
-                        <tr>
-                            <td colspan="6">
-                                <div class="dataTables_paginate paging_bootstrap"><span><?php echo $link ?></span></div>
-                            </td>
-                        </tr>
-                        </tfoot>
-                    </table>
+                            <?php foreach ($result as $item) { ?>
+                                <thead>
+                                <tr>
+                                    <th class="center" width="45%"><?php echo $item->test_topic ?></th>
+                                    <th class="center" width="13%"><?php echo $item->pub_time ?></th>
+                                    <th class="center" width="11%"><a
+                                            href="<?php echo site_url('teacher/pubQue\/') . $item->test_id ?>">上传</a>
+                                        <a href="<?php echo site_url('teacher/detailTest\/') . $item->test_id ?>">查看</a>
+                                    </th>
+                                </tr>
+                                </thead>
+                            <?php } ?>
+                            <tbody>
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <td colspan="6">
+                                    <div class="dataTables_paginate paging_bootstrap"><span><?php echo $link ?></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tfoot>
+                        </table>
+                    </div>
                 </div>
+                <!-- /.row -->
             </div>
-            <!-- /.row -->
+            <!-- /.page-content -->
         </div>
-        <!-- /.page-content -->
+        <!-- /.main-content -->
+
     </div>
-    <!-- /.main-content -->
+    <!-- /.main-container-inner -->
 
-</div>
-<!-- /.main-container-inner -->
-
-<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
-    <i class="icon-double-angle-up icon-only bigger-110"></i>
-</a>
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="icon-double-angle-up icon-only bigger-110"></i>
+    </a>
 </div>
 <!-- /.main-container -->
 
@@ -311,25 +176,6 @@
     if ("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>" + "<" + "script>");
 </script>
 <script src="<?php echo base_url("data/js/bootstrap.min.js") ?>"></script>
-<!--<script src="templets/ace/js/typeahead-bs2.min.js"></script>-->
-<!---->
-<!---->
-<!--<script src="templets/ace/js/jquery-ui-1.10.3.custom.min.js"></script>-->
-<!--<script src="templets/ace/js/jquery.ui.touch-punch.min.js"></script>-->
-<!--<script src="templets/ace/js/jquery.slimscroll.min.js"></script>-->
-<!--<script src="templets/ace/js/jquery.easy-pie-chart.min.js"></script>-->
-<!--<script src="templets/ace/js/jquery.sparkline.min.js"></script>-->
-<!--<script src="templets/ace/js/flot/jquery.flot.min.js"></script>-->
-<!--<script src="templets/ace/js/flot/jquery.flot.pie.min.js"></script>-->
-<!--<script src="templets/ace/js/flot/jquery.flot.resize.min.js"></script>-->
-<!---->
-<!--<!-- ace scripts -->-->
-<!---->
-<!--<script src="templets/ace/js/ace-elements.min.js"></script>-->
-<!--<script src="templets/ace/js/ace.min.js"></script>-->
-
-<!-- inline scripts related to this page -->
-
 <script type="text/javascript">
     jQuery(function ($) {
         $('.easy-pie-chart.percentage').each(function () {

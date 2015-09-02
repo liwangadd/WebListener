@@ -49,19 +49,7 @@
     <!-- /.container -->
 </div>
 <div class="main-container container" id="main-container">
-    <script type="text/javascript">
-        try {
-            ace.settings.check('main-container', 'fixed')
-        } catch (e) {
-        }
-    </script>
     <div class="sidebar responsive" id="sidebar">
-        <script type="text/javascript">
-            try {
-                ace.settings.check('sidebar', 'fixed')
-            } catch (e) {
-            }
-        </script>
         <ul class="nav nav-list">
             <li>
                 <a href="<?php echo site_url('teacher/home') ?>">
@@ -69,167 +57,70 @@
                     <span class="menu-text"> 首页 </span>
                 </a>
             </li>
-
-            <li class="active open">
-                <a href="#" class="dropdown-toggle">
-                    <i class="menu-icon fa fa-windows"></i>
-                    <span class="menu-text"> 内容管理 </span>
-
-                    <b class="arrow fa fa-angle-down"></b>
-                </a>
-
-                <ul class="submenu">
-                    <li class="active">
-                        <a href="/member/content_list.php?channelid=1">
-                            <i class="icon-double-angle-right"></i>
-                            我的文章
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="/ask/?ct=myask">
-                            <i class="icon-double-angle-right"></i>
-                            问答
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
             <li>
-                <a href="#" class="dropdown-toggle">
+                <a href="<?php echo site_url('teacher/pubTest') ?>" class="dropdown-toggle">
                     <i class="menu-icon fa fa-star"></i>
-                    <span class="menu-text"> 个人收藏 </span>
+                    <span class="menu-text"> 发布试卷 </span>
 
                     <b class="arrow fa fa-angle-down"></b>
-                </a>
-
-                <ul class="submenu">
-                    <li>
-                        <a href="/member/mystow.php">
-                            <i class="icon-double-angle-right"></i>
-                            我的收藏
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="/member/flink_main.php">
-                            <i class="icon-double-angle-right"></i>
-                            书签
-                        </a>
-                    </li>
-
-                </ul>
-            </li>
-            <li>
-                <a href="/member/pm.php">
-                    <i class="icon-text-width"></i>
-                    <i class="menu-icon fa fa-envelope"></i>
-                    <span class="menu-text"> 个人消息 </span>
-                </a>
-            </li>
-
-            <li>
-                <a href="#" class="dropdown-toggle">
-                    <i class="menu-icon fa fa-weixin"></i>
-                    <span class="menu-text"> 我的好友 </span>
-
-                    <b class="arrow fa fa-angle-down"></b>
-                </a>
-
-                <ul class="submenu">
-                    <li>
-                        <a href="/member/myfriend.php">
-                            <i class="icon-double-angle-right"></i>
-                            所有好友
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="/member/visit-history.php?dopost=viewme">
-                            <i class="icon-double-angle-right"></i>
-                            关注我的
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/member/visit-history.php?dopost=meview">
-                            <i class="icon-double-angle-right"></i>
-                            我最近访问
-                        </a>
-                    </li>
-
-                </ul>
-            </li>
-
-            <li>
-                <a href="/member/edit_space_info.php">
-                    <i class="icon-text-width"></i>
-                    <i class="menu-icon fa fa-th"></i>
-                    <span class="menu-text"> 空间设置 </span>
-                </a>
-            </li>
-
-            <li>
-                <a href="/member/guestbook_admin.php">
-                    <i class="menu-icon fa fa-reply"></i>
-                    <span class="menu-text"> 留言板 </span>
                 </a>
             </li>
         </ul>
-        <!-- /.nav-list -->
-        <div class="sidebar-collapse" id="sidebar-collapse">
-            <i class="icon-double-angle-left" data-icon1="icon-double-angle-left"
-               data-icon2="icon-double-angle-right"></i>
-        </div>
-
-        <script type="text/javascript">
-            try {
-                ace.settings.check('sidebar', 'collapsed')
-            } catch (e) {
-            }
-        </script>
     </div>
-    <div class="main-content">
+    <div class="main-content" style="padding-left: 50px">
         <?php for ($i = 0;
         $i < count($result);
         $i++){
         ?>
-        <div class="main-content-inner" style="padding-left: 50px">
+        <div class="main-content-inner">
+            <?php $sum = $result[$i]->right_count + $result[$i]->wrong_count;
+            $sum = $sum == 0 ? 1 : $sum ?>
             <div style="width:50%; height:auto; float:left; display:inline">
                 <p class="MsoNormal">
                     <span>1. </span><strong><span><?php echo $result[$i]->que_topic ?></span></strong>&nbsp;<span><? echo $result[$i]->ans_right ?></span>
                 </p>
 
                 <p class="MsoNormal">
-                    <span>A. </span><span><?php echo $result[$i]->ans_a ?></span>&nbsp;&nbsp;<span><?php echo $result[$i]->stu_a . "   " ?></span>
+                    <span>A. </span><span><?php echo $result[$i]->ans_a ?></span>&nbsp;&nbsp;<span><?php echo (int)($result[$i]->stu_a / $sum * 100) . '%' ?></span>
                 </p>
 
-                <p class="MsoNormal"><span style="color: red;">B. </span><span><?php echo $result[$i]->ans_b ?>&nbsp;&nbsp</span><?php echo $result[$i]->stu_a . "   " ?>
+                <p class="MsoNormal"><span style="color: red;">B. </span><span><?php echo $result[$i]->ans_b ?>&nbsp;&nbsp</span><?php echo (int)($result[$i]->stu_b / $sum * 100) . '%' ?>
                     <span> </span></p>
 
                 <p class="MsoNormal"><span>C. </span><span><?php echo $result[$i]->ans_c ?>
-                        &nbsp;&nbsp</span><?php echo $result[$i]->stu_a . "   " ?><span> </span></p>
+                        &nbsp;&nbsp</span><?php echo (int)($result[$i]->stu_c / $sum * 100) . '%' ?><span> </span></p>
 
                 <p class="MsoNormal">
-                    <span>D. </span><span><?php echo $result[$i]->ans_d ?></span>&nbsp;&nbsp<span><?php echo $result[$i]->stu_a . "   " ?></span>
+                    <span>D. </span><span><?php echo $result[$i]->ans_d ?></span>&nbsp;&nbsp<span><?php echo (int)($result[$i]->stu_d / $sum * 100) . '%' ?></span>
                 </p>
             </div>
-            <?php $i++ ?>
-            <div style="width:50%; height:auto; float:left; display:inline">
-                <p class="MsoNormal">
-                    <span>1. </span><strong><span><?php echo $result[$i]->que_topic ?></span></strong>&nbsp;<span><? echo $result[$i]->ans_right ?></span>
-                </p>
+            <?php if (++$i < count($result)) {
+                $sum = $result[$i]->right_count + $result[$i]->wrong_count;
+                $sum = $sum == 0 ? 1 : $sum ?>
+                <div style="width:50%; height:auto; float:left; display:inline">
+                    <p class="MsoNormal">
+                        <span>1. </span><strong><span><?php echo $result[$i]->que_topic ?></span></strong>&nbsp;<span><? echo $result[$i]->ans_right ?></span>
+                    </p>
 
-                <p class="MsoNormal"><span>A. </span><span><?php echo $result[$i]->ans_a ?></span><span> </span></p>
+                    <p class="MsoNormal">
+                        <span>A. </span><span><?php echo $result[$i]->ans_a ?></span>&nbsp;&nbsp;<span><?php echo (int)($result[$i]->stu_a / $sum * 100) . '%' ?></span>
+                    </p>
 
-                <p class="MsoNormal"><span
-                        style="color: red;">B. </span><span><?php echo $result[$i]->ans_b ?></span><span
-                        style="color: red;"> </span></p>
+                    <p class="MsoNormal"><span style="color: red;">B. </span><span><?php echo $result[$i]->ans_b ?>
+                            &nbsp;&nbsp</span><?php echo (int)($result[$i]->stu_b / $sum * 100) . '%' ?>
+                        <span> </span></p>
 
-                <p class="MsoNormal"><span>C. </span><span><?php echo $result[$i]->ans_c ?></span><span> </span></p>
+                    <p class="MsoNormal"><span>C. </span><span><?php echo $result[$i]->ans_c ?>
+                            &nbsp;&nbsp</span><?php echo (int)($result[$i]->stu_c / $sum * 100) . '%' ?><span> </span>
+                    </p>
 
-                <p class="MsoNormal"><span>D. </span><span><?php echo $result[$i]->ans_d ?></span></p>
-            </div>
-            <?php } ?>
+                    <p class="MsoNormal">
+                        <span>D. </span><span><?php echo $result[$i]->ans_d ?></span>&nbsp;&nbsp<span><?php echo (int)($result[$i]->stu_d / $sum * 100) . '%' ?></span>
+                    </p>
+                </div>
+            <?php
+            }
+            } ?>
             <!-- /.page-content -->
         </div>
         <!-- /.main-content -->

@@ -32,6 +32,7 @@
                 </div>
                 <div class="form-group">
                     <button id="btnSignCheck"  style="color:#fff"  class="btn btn-primary btn-block btn-lg" type="submit">登录</button>
+                    <a href="<?php echo site_url('teacher/reg')?>">还没有账号？注册</a>
                 </div>
             </form>
         </div>
