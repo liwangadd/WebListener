@@ -15,7 +15,7 @@ class AppAccountController extends CI_Controller{
     }
 
     public function view(){
-        $this->load->view('student/answer');
+        $this->load->view('student/login');
     }
 
     public function doRegister(){
@@ -33,10 +33,10 @@ class AppAccountController extends CI_Controller{
         $info=$this->input->post();
         $result=$this->appModel->loginStu($info);
         if(!$result){
-            echo json_encode(['login'=>false]);
+            echo json_encode(['message'=>false]);
             return;
         }
-        echo json_encode(['login'=>true,'stu_id'=>$result]);
+        echo json_encode(['message'=>true,'stuId'=>$result]);
     }
 
 } 

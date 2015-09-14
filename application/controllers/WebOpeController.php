@@ -17,6 +17,10 @@ class WebOpeController extends CI_Controller
     //获取用户主界面
     public function getHomeView()
     {
+        if($this->session->userdata("teacher_id")==null){
+            redirect("teacher/login");
+        }
+
         $pageIndex=$this->uri->segment(3);
         if(!isset($pageIndex)) $pageIndex=0;
 
