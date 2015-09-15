@@ -24,6 +24,14 @@ class AppOpeModel extends CI_Model
 
     public function checkQueAns($stuId, $queId, $ans)
     {
+
+        //检查用户是否已经做过该题目
+        $query = $this->db->get_where("stu_que", ["stu_id" => $stuId, "que_id" => $queId]);
+        echo $query->num_rows();
+        if ($query->num_rows() != 0) {
+            return false;
+        }
+
         $this->db->select('ans_right,right_count,wrong_count,stu_a,stu_b,stu_c,stu_d')->from("question")->where('que_id', $queId);
         $res = $this->db->get()->row();
         $info = ['stu_id' => $stuId, 'que_id' => $queId, 'right' => $res->ans_right, 'answer' => $ans];
