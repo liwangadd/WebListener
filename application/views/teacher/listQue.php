@@ -77,7 +77,7 @@
             $sum = $sum == 0 ? 1 : $sum ?>
             <div style="width:50%; height:auto; float:left; display:inline">
                 <p class="MsoNormal">
-                    <span>1. </span><strong><span><?php echo $result[$i]->que_topic ?></span></strong>&nbsp;<span><? echo $result[$i]->ans_right ?></span>
+                    <span>1. </span><strong><span><?php echo $result[$i]->que_topic ?></span></strong>&nbsp;<span><?php echo $result[$i]->ans_right ?></span>
                 </p>
 
                 <p class="MsoNormal">
@@ -99,7 +99,7 @@
                 $sum = $sum == 0 ? 1 : $sum ?>
                 <div style="width:50%; height:auto; float:left; display:inline">
                     <p class="MsoNormal">
-                        <span>1. </span><strong><span><?php echo $result[$i]->que_topic ?></span></strong>&nbsp;<span><? echo $result[$i]->ans_right ?></span>
+                        <span>1. </span><strong><span><?php echo $result[$i]->que_topic ?></span></strong>&nbsp;<span><?php echo $result[$i]->ans_right ?></span>
                     </p>
 
                     <p class="MsoNormal">

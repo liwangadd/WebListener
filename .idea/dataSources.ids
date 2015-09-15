@@ -1,32 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
   <data-source name="MySQL - @localhost" uuid="0cf1321f-8741-4548-a644-9991eb9ca4a7">
-    <database-info product="MySQL" version="5.5.19" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+    <database-info product="MySQL" version="5.5.44-0ubuntu0.14.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
-    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
     <schema name="" catalog="web_listener"/>
-    <table name="question" schema="" catalog="web_listener" type="TABLE">
-      <column name="que_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" remarks="5Li76ZSu" autoIncrement="true"/>
-      <column name="que_topic" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12" remarks="6YCJ5oup6aKY6aKY55uu"/>
-      <column name="ans_a" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" remarks="562U5qGIQQ=="/>
-      <column name="ans_b" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" remarks="562U5qGIQg=="/>
-      <column name="ans_c" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" remarks="562U5qGIQw=="/>
-      <column name="ans_d" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" remarks="562U5qGIRA=="/>
-      <column name="ans_right" sqlType="TINYINT UNSIGNED" precision="3" scale="0" nullable="false" jdbcType="-6" remarks="5q2j56Gu562U5qGI5bqP5Y+3"/>
-      <column name="path" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" remarks="5b2V6Z+z5a2Y5pS+6Lev5b6E"/>
-      <column name="right_count" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" def="MA==" remarks="5Zue562U5q2j56Gu5pWw"/>
-      <column name="wrong_count" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" def="MA==" remarks="5Zue562U6ZSZ6K+v5pWw"/>
-      <column name="test_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="5oyH5ZCR6K+V5Y23aWQ="/>
-      <primary-key name="PRIMARY" columns="que_id"/>
-    </table>
+    <table name="question" schema="" catalog="web_listener" type="TABLE"/>
     <table name="stu_que" schema="" catalog="web_listener" type="TABLE">
       <column name="link_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" remarks="5Li76ZSu" autoIncrement="true"/>
       <column name="stu_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="5oyH5ZCR5a2m55SfaWQ="/>
       <column name="que_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="5oyH5ZCR6Zeu6aKYaWQ="/>
       <column name="right" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" remarks="562U5qGI5piv5ZCm5q2j56Gu"/>
       <column name="answer" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="NQ==" remarks="6ZSZ6K+v562U5qGI5bqP5Y+3"/>
+      <column name="is_right" sqlType="TINYINT UNSIGNED" precision="3" scale="0" nullable="false" jdbcType="-6" remarks="5piv5ZCm5YGa5a+5"/>
       <primary-key name="PRIMARY" columns="link_id"/>
     </table>
     <table name="student" schema="" catalog="web_listener" type="TABLE">
@@ -42,12 +30,13 @@
     <table name="teacher" schema="" catalog="web_listener" type="TABLE">
       <column name="teacher_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" remarks="5Li76ZSu" autoIncrement="true"/>
       <column name="username" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12" remarks="55So5oi35ZCN"/>
-      <column name="password" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12" remarks="5a+G56CB"/>
+      <column name="password" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" remarks="5a+G56CB"/>
       <primary-key name="PRIMARY" columns="teacher_id"/>
     </table>
     <table name="test" schema="" catalog="web_listener" type="TABLE">
       <column name="test_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" remarks="5Li76ZSu" autoIncrement="true"/>
       <column name="test_topic" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" remarks="6K+V5Y235ZCN56ew"/>
+      <column name="teacher_name" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12" remarks="5LiK5Lyg6K+V6aKY6ICB5biI"/>
       <primary-key name="PRIMARY" columns="test_id"/>
     </table>
   </data-source>
