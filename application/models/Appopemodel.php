@@ -9,20 +9,36 @@
 class AppOpeModel extends CI_Model
 {
 
-    public function getAllTest()
+    public function getAllTest($stu_id)
     {
-        $query = $this->db->get('test');
-        return $query->result();
+        $sql = 'SELECT q.test_topic, q.test_id, s.is_complete FROM test q JOIN stu_test s ON s.test_id = q.test_id WHERE s.stu_id = ?';
+        $query = $this->db->query($sql, [$stu_id]);
+
+        $queryAll = $this->db->query("SELECT q.test_topic, q.test_id FROM test q");
+
+        $result = $query->result();
+        $resultAll = $queryAll->result();
+        for ($i=0;$i<count($result);++$i) {
+            for ($j=0;$j<count($resultAll);++$j) {
+                if ($result[$i]->test_id == $resultAll[$j]->test_id) {
+                    $resultAll[$j]=$result[$i];
+                    break;
+                }
+            }
+        }
+        return $resultAll;
     }
 
-    public function getQueByTestId($testId)
+    public
+    function getQueByTestId($stu_id, $testId)
     {
         $where = ['test_id' => $testId];
         $query = $this->db->get_where('question', $where);
         return $query->result();
     }
 
-    public function checkQueAns($stuId, $queId, $ans)
+    public
+    function checkQueAns($stuId, $queId, $ans)
     {
 
         //检查用户是否已经做过该题目
@@ -51,7 +67,8 @@ class AppOpeModel extends CI_Model
         return $res->ans_right;
     }
 
-    public function updateStuAns($ans, &$values, $res)
+    public
+    function updateStuAns($ans, &$values, $res)
     {
         switch ($ans) {
             case 'A':

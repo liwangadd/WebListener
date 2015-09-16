@@ -17,7 +17,8 @@ class AppOpeController extends CI_Controller
 
     public function getAllTest()
     {
-        $result = $this->appModel->getAllTest();
+        $stu_id=$this->input->post('stu_id');
+        $result = $this->appModel->getAllTest($stu_id);
         if (!isset($result)) {
             echo json_encode(['message' => false]);
             return;
