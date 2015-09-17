@@ -18,10 +18,10 @@ class AppOpeModel extends CI_Model
 
         $result = $query->result();
         $resultAll = $queryAll->result();
-        for ($i=0;$i<count($result);++$i) {
-            for ($j=0;$j<count($resultAll);++$j) {
+        for ($i = 0; $i < count($result); ++$i) {
+            for ($j = 0; $j < count($resultAll); ++$j) {
                 if ($result[$i]->test_id == $resultAll[$j]->test_id) {
-                    $resultAll[$j]=$result[$i];
+                    $resultAll[$j] = $result[$i];
                     break;
                 }
             }
@@ -30,7 +30,7 @@ class AppOpeModel extends CI_Model
     }
 
     public
-    function getQueByTestId($stu_id, $testId)
+    function getQueByTestId($testId)
     {
         $where = ['test_id' => $testId];
         $query = $this->db->get_where('question', $where);
@@ -84,6 +84,15 @@ class AppOpeModel extends CI_Model
                 $values['stu_d'] = $res->stu_d + 1;
                 break;
         }
+    }
+
+    public function completeTest($stuId, $testId)
+    {
+        $query = $this->db->get_where("stu_test", ['stu_id' => $stuId, 'test_id' => $testId]);
+        if ($query->num_rows() == 0) {
+            $this->db->insert("stu_test", ['stu_id' => $stuId, 'test_id' => $testId, 'is_complete' => 1]);
+        }
+        return true;
     }
 
 } 

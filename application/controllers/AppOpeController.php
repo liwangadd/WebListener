@@ -17,7 +17,7 @@ class AppOpeController extends CI_Controller
 
     public function getAllTest()
     {
-        $stu_id=$this->input->post('stu_id');
+        $stu_id = $this->input->post('stu_id');
         $result = $this->appModel->getAllTest($stu_id);
         if (!isset($result)) {
             echo json_encode(['message' => false]);
@@ -37,16 +37,25 @@ class AppOpeController extends CI_Controller
         echo json_encode(['message' => true, 'result' => $result]);
     }
 
-    public function checkQueAns(){
-        $queId=$this->input->post('que_id');
-        $ans=$this->input->post('ans');
-        $stuId=$this->input->post('stu_id');
-        $res=$this->appModel->checkQueAns($stuId,$queId,$ans);
-        if($res){
-            echo json_encode(['message'=>true,'ans_right'=>$ans]);
+    public function checkQueAns()
+    {
+        $queId = $this->input->post('que_id');
+        $ans = $this->input->post('ans');
+        $stuId = $this->input->post('stu_id');
+        $res = $this->appModel->checkQueAns($stuId, $queId, $ans);
+        if ($res) {
+            echo json_encode(['message' => true, 'ans_right' => $ans]);
             return;
         }
-        echo json_encode(['message'=>false,'ans_right'=>$res]);
+        echo json_encode(['message' => false, 'ans_right' => $res]);
+    }
+
+    public function completeTest()
+    {
+        $stu_id = $this->input->post("stu_id");
+        $test_id = $this->input->post("test_id");
+        $res = $this->appModel->completeTest($stu_id, $test_id);
+        echo json_encode(["message" => $res]);
     }
 
 } 

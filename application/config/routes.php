@@ -69,4 +69,5 @@ $route['student/doLogin']='AppAccountController/doLogin';
 $route['student/allTest']='AppOpeController/getAllTest';
 $route['student/queById']='AppOpeController/getQueByTestId';
 $route['student/ans']='AppOpeController/checkQueAns';
+$route['student/compTest']='AppOpeController/completeTest';
 $route['student/view']='AppAccountController/view';
