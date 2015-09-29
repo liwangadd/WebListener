@@ -14,19 +14,24 @@ class AppOpeModel extends CI_Model
         $sql = 'SELECT q.test_topic, q.test_id, s.is_complete FROM test q JOIN stu_test s ON s.test_id = q.test_id WHERE s.stu_id = ?';
         $query = $this->db->query($sql, [$stu_id]);
 
-        $queryAll = $this->db->query("SELECT q.test_topic, q.test_id FROM test q");
+        //$queryAll = $this->db->query("SELECT q.test_topic, q.test_id FROM test q");
+        $queryAll = $this->db->query('SELECT q.test_topic, q.test_id FROM test q WHERE q.test_id NOT IN (SELECT test_id FROM stu_test where stu_id = ?)', [$stu_id]);
 
         $result = $query->result();
         $resultAll = $queryAll->result();
-        for ($i = 0; $i < count($result); ++$i) {
-            for ($j = 0; $j < count($resultAll); ++$j) {
-                if ($result[$i]->test_id == $resultAll[$j]->test_id) {
-                    $resultAll[$j] = $result[$i];
-                    break;
-                }
-            }
+//        for ($i = 0; $i < count($result); ++$i) {
+//            for ($j = 0; $j < count($resultAll); ++$j) {
+//                if ($result[$i]->test_id == $resultAll[$j]->test_id) {
+//                    $resultAll[$j] = $result[$i];
+//                    break;
+//                }
+//            }
+//        }
+        //$resultALL = array_merge($result, $resultAll);
+        foreach($resultAll as $key=>$value){
+            $result[]=$value;
         }
-        return $resultAll;
+        return $result;
     }
 
     public
